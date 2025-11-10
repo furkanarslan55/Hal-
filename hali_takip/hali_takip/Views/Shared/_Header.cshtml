@@ -1,0 +1,25 @@
+﻿<header class="bg-blue-600 text-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+        <h1 class="text-xl font-bold">Halı Takip</h1>
+
+        <button id="menu-btn" class="sm:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none">
+            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+        </button>
+
+        <nav id="menu" class="hidden sm:flex flex-col sm:flex-row items-center w-full sm:w-auto">
+            <a asp-controller="Home" asp-action="Index" class="block px-4 py-2 sm:py-0 sm:mx-2 hover:underline text-center">Anasayfa</a>
+            <a asp-controller="Home" asp-action="About" class="block px-4 py-2 sm:py-0 sm:mx-2 hover:underline text-center">Hakkımızda</a>
+            <a asp-controller="Home" asp-action="Contact" class="block px-4 py-2 sm:py-0 sm:mx-2 hover:underline text-center">İletişim</a>
+            <a asp-controller="Account" asp-action="Login" class="block px-4 py-2 sm:py-0 sm:mx-2 hover:underline text-center">Giriş Yap</a>
+            <a asp-controller="Account" asp-action="Register" class="block px-4 py-2 sm:py-0 sm:mx-2 hover:underline text-center">Kayıt Ol</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+</script>

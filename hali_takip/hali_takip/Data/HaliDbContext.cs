@@ -1,22 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using hali_takip.Models.Entities;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-
-
-namespace hali_takip.Data;
-
-
-
-public class HaliDbContext: DbContext
-
+namespace hali_takip.Models.Entities
 {
-   public DbSet<Product> Products { get; set; }
-    public DbSet<Order> Orders { get; set; }
-    public DbSet<OrderItem> OrderItems { get; set; }
-    override protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // IdentityDbContext miras alıyoruz ki Identity tabloları (AspNetUsers vs.) otomatik oluşsun
+    public class HaliDbContext : IdentityDbContext<ApplicationUser>
     {
-        optionsBuilder.UseSqlServer("Server=FURKANARSLAN\\SQLEXPRESS;Database=HaliDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+        public HaliDbContext(DbContextOptions<HaliDbContext> options)
+            : base(options)
+        {
+        }
+
+   
     }
-
-
 }
