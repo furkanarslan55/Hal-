@@ -1,8 +1,65 @@
-﻿@{
-    ViewData["Title"] = "Anasayfa";
+﻿
+@{
+    ViewData["Title"] = "Ana Sayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Hero Bölümü -->
+@section Styles {
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
 
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
+        .feature-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
 
+            .feature-card:hover {
+                transform: translateY(-4px);
+            }
+    </style>
+}
+
+@section PageHeader {
+    <div class="hero">
+        <h1>Hoş Geldiniz!</h1>
+        <p class="lead">qualite halıya hoş geldiniz.</p>
+        <a href="#features" class="btn btn-light btn-lg mt-3">Keşfet</a>
+    </div>
+}
+
+<div id="features" class="features">
+    <div class="feature-card">
+        <h4>Hızlı Performans</h4>
+        <p>Optimize edilmiş yapımız sayesinde siteniz hızlı yüklenir ve akıcı çalışır.</p>
+    </div>
+    <div class="feature-card">
+        <h4>Mobil Uyumlu</h4>
+        <p>Tüm cihazlarda mükemmel görüntüleme deneyimi sağlar.</p>
+    </div>
+    <div class="feature-card">
+        <h4>Kolay Yönetim</h4>
+        <p>Kullanıcı dostu panelimizle içeriklerinizi kolayca yönetin.</p>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        console.log('Ana sayfa yüklendi.');
+    </script>
+}
