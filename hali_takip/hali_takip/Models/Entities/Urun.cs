@@ -7,6 +7,7 @@
         public int MarkaId { get; set; }
         public string UrunKodu { get; set; }
         public string UrunFotografi { get; set; }
+        public Koleksiyon Koleksiyon { get; set; }
 
         public Marka Marka { get; set; }    
     }

@@ -1,0 +1,18 @@
+﻿@model hali_takip.Models.Entities.Marka;  // Model tipi Marka olmalı
+@{
+    ViewData["Title"] = "Getir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<h2>@Model.Ad Koleksiyonları</h2>
+
+<ul>
+    @foreach (var koleksiyon in Model.Koleksiyonlar)
+    {
+        <li>@koleksiyon.Adı</li>
+    }
+</ul>

@@ -6,6 +6,8 @@
         public string Ad { get; set; }
        
         public ICollection<Urun> Urunler { get; set; }
+        public ICollection<Koleksiyon> Koleksiyonlar { get; set; }
+
 
     }
 }

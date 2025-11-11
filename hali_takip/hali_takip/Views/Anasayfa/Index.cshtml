@@ -1,65 +1,87 @@
-﻿
-@{
-    ViewData["Title"] = "Ana Sayfa";
+﻿@{
+    ViewBag.Title = "Ana Sayfa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@section Styles {
+<head>
     <style>
-        .hero {
-            background: linear-gradient(135deg, #007bff, #6610f2);
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 1rem;
-            text-align: center;
+        /* Bu stil, tüm marka resimlerinin yüksekliğini sabitler. */
+        .brand-image {
+            height: 150px; /* İstediğiniz yüksekliği buradan ayarlayın (örneğin 200px) */
+            width: 100%;
+            object-fit: cover; /* Resmi, oranı bozulmadan ayarlanmış alana sığdırır */
         }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-4px);
-            }
     </style>
-}
+</head>
 
-@section PageHeader {
-    <div class="hero">
-        <h1>Hoş Geldiniz!</h1>
-        <p class="lead">qualite halıya hoş geldiniz.</p>
-        <a href="#features" class="btn btn-light btn-lg mt-3">Keşfet</a>
-    </div>
-}
+<div class="container py-5">
+    <h1 class="text-center mb-4">Markalarımız</h1>
 
-<div id="features" class="features">
-    <div class="feature-card">
-        <h4>Hızlı Performans</h4>
-        <p>Optimize edilmiş yapımız sayesinde siteniz hızlı yüklenir ve akıcı çalışır.</p>
-    </div>
-    <div class="feature-card">
-        <h4>Mobil Uyumlu</h4>
-        <p>Tüm cihazlarda mükemmel görüntüleme deneyimi sağlar.</p>
-    </div>
-    <div class="feature-card">
-        <h4>Kolay Yönetim</h4>
-        <p>Kullanıcı dostu panelimizle içeriklerinizi kolayca yönetin.</p>
+    <div class="row text-center">
+
+        <div class="col-6 col-sm-6 col-md-3 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <a href="https://www.atlashali.com.tr" target="_blank">
+                    <img src="~/images/ornek.jpg" class="card-img-top img-fluid brand-image" alt="Resim 1" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Atlas Halı</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <a href="https://www.pierrecardinhalidekorasyon.com" target="_blank">
+                    <img src="~/images/ornek2.jpg" class="card-img-top img-fluid brand-image" alt="Resim 2" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Pierre Cardin</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <a href="https://www.padisahhali.com" target="_blank">
+                    <img src="~/images/ornek3.jpg" class="card-img-top img-fluid brand-image" alt="Resim 3" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Padişah Halı</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <a href="https://www.royalhali.com" target="_blank">
+                    <img src="~/images/royal.png" class="card-img-top img-fluid brand-image" alt="Resim 4" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Royal Halı</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <a href="https://www.angorayorgan.com" target="_blank">
+                    <img src="~/images/angora.png" class="card-img-top img-fluid brand-image" alt="Resim 5" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Angora Halı</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <a href="https://www.dinarsu.com.tr" target="_blank">
+                    <img src="~/images/dinarsu.png" class="card-img-top img-fluid brand-image" alt="Resim 1" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Dinarsu Halı</h5>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-@section Scripts {
-    <script>
-        console.log('Ana sayfa yüklendi.');
-    </script>
-}
