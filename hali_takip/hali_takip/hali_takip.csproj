@@ -13,6 +13,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Views\sosyalmedya\" />
     <Folder Include="Views\ViewComponent\" />
     <Folder Include="wwwroot\anasayfa\" />
   </ItemGroup>

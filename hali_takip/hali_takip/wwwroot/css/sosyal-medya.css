@@ -1,0 +1,142 @@
+﻿/* 2. FOTOĞRAF GALERİSİ (4x3 DÜZENİ) */
+
+/* Grid Düzeni (4 Sütun) */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    /* Resim Kapsayıcısını (A Etiketi) Kare Şekilde Yapmak İçin (Padding Hack) */
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+/* Sosyal medya logolarını içeren kapsayıcı */
+/* 1. SOSYAL MEDYA LİNKLERİ STİLİ */
+
+.social-links {
+    text-align: center; /* Başlığı ortalar */
+    color: black; /* H2 başlık ve diğer yazıların rengi (isteğe bağlı) */
+    margin-bottom: 40px;
+}
+
+/* Logoların Kapsayıcısı */
+.icons-wrapper {
+    /* font-size ve color buradan kaldırıldı, a etiketine taşındı */
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* Logolar arası boşluk */
+}
+
+    /* KRİTİK: Bağlantı (<a>) Etiketlerini Hedefle ve Siyah Yap */
+    .icons-wrapper a {
+        /* --- RENK AYARI (NORMAL DURUM) --- */
+        color: #333333; /* Logoların normal rengi: Koyu Siyah */
+        /* --- BOYUT AYARI --- */
+        font-size: 4em; /* Boyutu tekrar tanımlayın */
+
+        text-decoration: none; /* Link alt çizgisini kaldırır */
+        transition: color 0.3s ease;
+    }
+
+
+        /* HOVER (Üzerine Gelme) Efektleri */
+        .icons-wrapper a[aria-label="Instagram"]:hover {
+            color: #E1306C;
+        }
+
+        .icons-wrapper a[aria-label="Facebook"]:hover {
+            color: #3b5998;
+        }
+
+        .icons-wrapper a[aria-label="Twitter/X"]:hover {
+            color: #1da1f2;
+        }
+
+        .icons-wrapper a[aria-label="YouTube"]:hover {
+            color: #ff0000;
+        }
+    /* Hover üzerine görünen Overlay (Yarı saydam siyah kaplama) */
+    .gallery-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Yarı saydam siyah overlay */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 5;
+        border-radius: 8px;
+    }
+
+    /* Hover üzerine İkon (Görüntüleme İkonu) */
+    .gallery-item::before {
+        content: '\f06e';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2.5em;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 10;
+    }
+
+    /* Kapsayıcının üzerine gelindiğinde Overlay ve İkonu Göster */
+    .gallery-item:hover::after,
+    .gallery-item:hover::before {
+        opacity: 1;
+    }
+
+    .gallery-item img {
+        /* Resmi, Kapsayıcının İçine Tamamen Yay */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        /* SADECE BÜYÜTME GEÇİŞİ KALDI (Karartma filtresi kaldırıldı) */
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* Hover Efekti: Resim SADECE büyür, kararma yapmaz */
+    .gallery-item:hover img {
+        transform: scale(1.08);
+        /* filter: brightness(80%); satırı kaldırıldı */
+    }
+
+/* DUYARLILIK (Responsive) */
+@media (max-width: 992px) {
+    .grid-layout {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
